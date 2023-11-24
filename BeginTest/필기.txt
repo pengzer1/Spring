@@ -1,0 +1,173 @@
+Servlet/JSP : 초반 (쉬움) > 후반 (어려움)					> 5일 업무
+Spring		: 초반 (어려움) > 후반 (쉬움) > 프레임워크 특?  > (빠르면)2일 업무
+
+
+Spring Framework
+- https://spring.io
+- Spring 1.0 ~ 6.0
+- Spring 3.XX ~ 5.XX > Spring 5.XX 수업
+- 자바 플랫폼을 위한 오픈 소스 애플리케이션 프레임워크 이다.
+- 콘솔 or 응용 or 웹 응용
+- 현업 > 웹 응용 제작
+- Servlet/JSP > 버젼 업
+- 전자 정부 표준 프레임워크로 채택
+
+
+스프링 코어 + 추가 프로젝트 = 스프링
+- Spring
+- Spring MVC
+- Spring AOP
+- Spring Data
+- Spring Security
+- Spring Boot
+
+
+스프링 프로젝트 구성 요소(주요 기술)
+1. POJO 기반(Plain Old Java Object). Java로 생성하는 순수한 객체를 뜻한다.
+
+2. 의존성 주입 지원(DI)
+3. 관점 지향 프로그래밍 지원(AOP)
+4. Spring MVC > 스프링 웹 사이트
+5. 레이아웃 지원 > Tiles
+6. 데이터베이스 연동 지원
+	- JDBC(잘 안씀 > 생산성이 떨어져서)
+	- Spring JDBC > 낮음
+	- ORM(JPA) > 해외(70%) > 시간되면 수업
+	- MyBatis > 국내(70%) > 수업(O)
+	
+	
+Maven(메이븐)
+	- 빌드 도구, 라이브러리 관리 도구 등...
+	- 프로젝트 생성 or 유지 관리 or 배포를 도와주는 프로그램 > 집사
+	- 수업 > 라이브러리 관리용(jar) > jar 다운로드 + 참조 + 관리
+	- pom.xml
+		> dependency > 필요한 jar 파일 기술
+		lombok.jar
+		1. Build Path > lib 참조
+		2. WEB-INF > lib 폴더 복사
+		3. Maven > Dependency 추가
+
+
+
+스프링 버전 설정 + JDK 버전 설정 > pom.xml
+- Spring MVC Project
+	- 스프링 3.XX
+	- JDK 1.6
+
+
+
+DI, AOP > 스프링 기술(X), 면접(!!!!!)
+
+Spring DI
+- 디자인 패턴
+- Dependency Injection > DI
+- 의존(성) 주입
+- 스프링에서 중요한 개념 > 스프링 내의 모든 객체 관리에 사용
+- 프로그래밍에서 구성 요소 간의 의존 관계가 소스 내부가 아닌 외부 환경에서 정의되게 하는 디자인 패턴
+
+
+"의존 관계"?
+- src/main/java > com.test.spring.di01 패키지 생성
+					> Main.java
+					
+					> Hong.java : 기존 방식
+					> Pen.java
+					
+					> Lee.java : DI 방식
+					> Brush.java
+					
+- src/main/java > com.test.spring.di02 패키지 생성
+					> Main.java
+					
+					> Hong.java : 기존 방식
+					> Pen.java
+					
+					> Lee.java : DI 방식
+					> Brush.java
+
+
+https://docs.spring.io/spring-framework/docs/
+
+
+
+Spring AOP, Aspect Oriented Programming
+- 관점 지향 프로그래밍
+- 관점(=관심사) > 업무 구현 시 주업무가 아닌 나머지 보조 업무
+- 주업무 vs 보조업무
+
+[게시판 글쓰기]
+1. 기존 방식
+	- add.do
+		a. 글쓰기 > 주업무
+		b. 권한 체크
+	- 주업무와 보조업무를 같은 곳에서 구현 (한 파일에서 구현)
+	- 단점 > 코드 관리 불편(어디~어디? 주업무? 보조업무?)
+2. AOP 방식
+	- add.do
+	- 주업무와 보조업무를 분리시켜서 따로 구현(물리적으로 분리)
+	- 스프링을 통해서 주업무와 보조 업무를 다시 결합 후 동작
+
+
+Spring AOP 용어
+
+1. Core Concern
+	- 비즈니스 코드, 주업무
+	
+2. Cross-cutting Concern
+	- 보조업무
+
+3. Target
+	- 비즈니스 업무를 소유한 객체
+
+4. Proxy
+	- Target을 감싸는 대리 객체
+
+5. JoinPoint
+	- Target이 가진 주업무(메서드)
+
+6. PointCut
+	- 보조업무와 특정 JoinPoint를 연결하는 작업
+
+7. Aspect
+	- 보조업무를 구현하는 객체
+
+8. Advice
+	- 주업무가 시행되는 어느 시점에 보조업무를 실행할지?
+	a. Before Advice
+	b. After Advice
+	c. Around Advice
+	d. After-returning Advice
+	e. After-throwing Advice
+
+
+Spring AOP 구현
+- com.test.spring.aop1 패키지
+	> Main.java			// 메인
+	
+	> Memo.java(I)		// 메인 업무 객체(인터페이스)
+	> MemoImpl.java(C)	// 메인 업무 객체(클래스)
+	
+	> Logger.java(C)	// 보조 업무 객체(클래스)
+	
+	> memo.xml			// 스프링 설정 파일
+
+
+XML > Namespace (Tag 집합)
+JAVA > Package	(Class 집합)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

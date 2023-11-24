@@ -1,0 +1,56 @@
+Spring MVC Project
+- 스프링 기반 MVC 웹 프로젝트 구현
+
+
+패키지
+- com.test.spring.controller
+
+Servlet/JSP
+- 웹 요청 처리 + 통제 > Controller 역할
+
+스프링 MVC
+- Controller
+
+- com.test.spring.controller > Ex01Controller.java
+- views > ex01.jsp
+
+- com.test.spring.controller > Ex02Controller.java
+- com.test.spring.persistence > SpringDAO.java (I)
+							  > SpringDAOImpl.java (C)
+- views > ex02.jsp
+
+- com.test.spring.controller > Ex03Controller.java
+- view > ex03.jsp
+
+- com.test.spring.controller > Ex04Controller.java
+- view > ex04.jsp	> /ex04.do
+- view > ex04_1.jsp > /ex04_1.do
+
+
+- com.test.spring.controller > BoardController.java
+- views > list.jsp
+		> add.jsp
+		> addok.jsp
+		> view.jsp
+
+*** 데이터 전송 > 데이터 수신
+- com.test.spring.controller > Ex05Controller.java
+- view > ex05.jsp
+- view > ex05ok.jsp
+- com.test.spring.domain > SpringDTO.java
+
+
+
+요청 메서드 반환값
+- com.test.spring.controller > Ex06Controller.java
+- views > ex06.jsp
+
+
+
+
+
+
+
+
+
+
