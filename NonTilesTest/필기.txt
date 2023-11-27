@@ -1,0 +1,57 @@
+새 프로젝트 만들기
+
+- New > Spring Legacy Project > Spring MVC Project > "NonTilesTest" > "com.test.nontiles" > Finish
+
+- New > Spring Legacy Project > Spring MVC Project > "TilesTest" > "com.test.tiles" > Finish
+
+이전
+- 레이아웃 작업 > <@% include file="재사용할 조각 페이지" %>
+
+
+Tiles
+- 레이아웃 프레임워크
+
+
+구현
+- 메인 (index.do)
+
+- 회원
+	- 회원정보(member/info.do)
+	- 활동내역(member/history.do)
+	- 즐겨찾기(member/favorite.do)
+	
+- 관리자
+	- 로그(admin/log.do)
+	- 환경설정(admin/setting.do)
+	
+	
+파일 생성
+- com.test.controller > MainController.java
+					  > MemberController.java
+					  > AdminController.java
+					  
+- views > index.jsp
+- views > member > info.jsp
+				 > history.jsp
+				 > favorite.jsp
+		> admin  > log.jsp
+				 > setting.jsp
+		> inc	 > main_menu.jsp
+				 > member_menu.jsp
+				 > admin_menu.jsp
+				 > asset.jsp
+					  
+					  
+
+1. 자바 버전, 스프링 버전
+   - JDK 11
+   - Spring 5.0.7
+   
+   
+   
+   
+   
+   
+   
+   
+   

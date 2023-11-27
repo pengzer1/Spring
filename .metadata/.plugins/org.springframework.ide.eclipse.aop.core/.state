@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aop-reference-model>
+<aop-project name="NonTilesTest"/>
 <aop-project name="Code"/>
 <aop-project name="WebTest"/>
+<aop-project name="TilesTest"/>
+<aop-project name="MyBatisTest"/>
 <aop-project name="BeginTest">
 <aspect-definition advice-class-name="com.test.spring.aop1.Logger" advice-method-name="check" advice-type="AFTER_THROWING" aspect-end-line-number="69" aspect-name="logger" aspect-start-line-number="69" factory-id="org.springframework.ide.eclipse.aop.core.beanAspectDefinitionElementFactory" file="/BeginTest/src/main/java/com/test/spring/aop1/memo.xml" pointcut-expression="execution(public String com.test.spring.aop1.MemoImpl.read(int))" proxy-target-class="false" throwing="e">
 <aop-reference advice-type="AFTER_THROWING" bean="1:BeansModel|2:BeginTest|3:src/main/java/com/test/spring/aop1/memo.xml|7:beans:8|8:memo:14" bean-file="/BeginTest/src/main/java/com/test/spring/aop1/memo.xml" bean-start-line="14" factory-id="org.springframework.ide.eclipse.aop.core.aopReferenceElementFactory" file="/BeginTest/src/main/java/com/test/spring/aop1/memo.xml" source="=BeginTest/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.test.spring.aop1{Logger.java[Logger~check~QException;" source-start-line="41" target="=BeginTest/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.test.spring.aop1{MemoImpl.java[MemoImpl~read~I" target-start-line="20"/>
 </aspect-definition>
 </aop-project>
-<aop-project name="MyBatisTest"/>
+<aop-project name="FileTest"/>
 </aop-reference-model>
