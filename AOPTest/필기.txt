@@ -1,0 +1,17 @@
+설정
+- pom.xml > 의존성 2개 추가
+- web.xml 
+- servlet-context.xml > 태그 1개 추가
+
+
+- com.test.controller > AOPController.java
+- com.test.persistence > AOPDAO.java (I)
+					   > AOPDAOImpl.java(C)
+					   
+- views > list.jsp
+		> add.jsp
+		> view.jsp
+		
+- com.test.aspect > Log.java
+
+

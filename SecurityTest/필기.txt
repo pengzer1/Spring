@@ -1,0 +1,153 @@
+이전 인증 방식 > 세션(쿠키) 기반 + 직접 처리
+스프링 프레임워크 > 인증 > Spring Security Project
+
+스프링 시큐리티
+
+프로젝트 설정
+
+1. 일괄 설정
+	- pom.xml
+	- web.xml
+	- root-context.xml
+
+2. ojdbc6.jar > Build Path 추가
+
+3. pom.xml
+	- 시큐리티 의존성 4개 추가
+	
+4. 패키지
+	- com.test.controller
+	- com.test.persistence
+	- com.test.domain
+	- com.test.mapper
+	- com.test.security
+	
+5. servlet-context.xml
+	- 스캔 추가
+	
+6. security-context.xml
+	- 파일 생성
+	- /WEB-INF/spring/security-context.xml
+	- 스프링 시큐리티의 전반적인 설정
+	- Spring Bean Configuration File 로 생성
+	- namespace에서 security 추가 > xml 파일에서 -5.0 제거
+	
+7. web.xml
+	- 스프링 시큐리티가 동작할 수 있게 필터 추가
+	
+8. 실행
+	- 에러 > No bean named 'springSecurityFilterChain' available
+	- security-context.xml를 찾지 못해서..
+
+8.1 web.xml > security-context.xml 위치 추가
+8.2 security-context.xml > 기본 구문 작성
+8.3 실행
+
+
+9. 기본적인 URI 설계
+	- /index.do > 초기 페이지(모두 접근)
+	- /member/member.do > 회원 페이지(회원만 접근, 관리자도 접근)
+	- /admin/admin.do > 관리자 페이지(관리자만 접근)
+	
+9.1 파일 생성
+	- com.test.controller > TestController.java
+	- views > index.jsp
+			> member > member.jsp
+			> admin > admin.jsp
+			> inc > header.jsp
+			
+9.2 실행
+	- 정상 실행
+	
+	
+10. 로그인
+	- security-context.xml 수정
+	
+10.1 pattern 속성
+	- 접근할 URI
+	
+10.2 access 속성
+	- 표현식
+	- 접근 권한
+	
+10.3 실행
+	- index.do
+		> 접근 성공
+	- member.do
+		> 접근 실패
+		> http://localhost:8090/spring/login
+		> 빌트인 로그인 페이지로 이동(권한 없어서..)
+		
+11. 단순 로그인
+	- 직접 구현(X)
+	- 내장 구현(O)
+	
+11.1 주의점(***)	
+	-  일반 시스템(id) == 스프링 시큐리티(username)
+	
+11.2 security-context.xml 수정
+	- 계정 추가 > 비밀번호 암호화
+	
+11.3 로그아웃
+	- 쿠키에서 JSESSIONID 삭제
+	
+	
+12. 여러 권한을 가지는 사용자
+	- 관리자 > 일반 회원 권한 + 관리자 권한
+	
+12.1 security-context.xml
+
+12.2 실행
+	- hong 로그인
+		- member.do > 성공
+		- admin.do > 실패 > 403 Error > 권한이 없을때 뜨는 에러
+		
+13. 403 페이지 구현
+	- com.test.controller > AuthController.java
+	- views > auth > accesserror.jsp
+	
+	
+14. 로그인 페이지 구현
+	- 커스텀 로그인 페이지
+	- 접근 제한(403) 페이지처럼 직접 특정 URI를 지정할 수 있다.
+	
+14.1 security-context.xml
+
+14.2 
+	- AuthController.java
+	- views > auth > mylogin.jsp
+	
+14.3 CSRF, Cross-Site Request Forgery
+	- 해킹 기법
+	- 요청 정보를 다른 사이트에서 볼내서 위조하는 기법
+	- 스프링 시큐리티 > CSRF 방지
+	- 모든 POST 요청을 할 때 > 위조가 되지 않았다는 사실을 증명해야함
+	
+
+15. 로그인 성공 이후 처리
+	- 정해진 URI로 이동하기
+	- 일반 회원 > member.do 이동
+	- 관리자 > admin.do 이동
+	
+15.1
+	- com.test.security > CustomLoginSuccessHandler.java
+	
+15.2 security-context.xml 수정
+
+
+16. 로그아웃 처리
+	- 로그인처럼 특정한 URI를 지정하고, 로그아웃 처리 후 직접 로직을 처리하는 핸들러를 등록한다.
+	
+16.1 security-context.xml 수정
+16.2 AuthController.java
+16.3 views > auth > mylogout.jsp
+
+
+계정 정보(오라클) + 시큐리티 연동
+
+내일 AWS 수업~ (본인 인증용 신용 카드 지참(VISA, Master))
+
+
+
+
+

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- rest.xml -->
+<mapper namespace="rest">
+
+	<select id="test" resultType="Integer">
+		select count(*) from tblAddress
+	</select>
+	
+	<insert id="add" parameterType="com.test.domain.AddressDTO">
+		insert into tblAddress (seq, name, age, gender, address, regdate)
+		values (seqAddress.nextVal, #{name}, #{age}, #{gender}, #{address}, default)
+	</insert>
+	
+	<select id="list" resultType="com.test.domain.AddressDTO">
+		select * from tblAddress order by name asc
+	</select>
+	
+	<update id="edit" parameterType="com.test.domain.AddressDTO">
+		update tblAddress set
+			name = #{name}, age = #{age}, gender = #{gender}, address = #{address} where seq = #{seq}
+	</update>
+	
+	<delete id="del" parameterType="String">
+		delete from tblAddress where seq = #{seq}
+	</delete>
+	
+	<select id="get" parameterType="String" resultType="com.test.domain.AddressDTO">
+		select * from tblAddress where seq = #{seq}
+	</select>
+	
+</mapper>

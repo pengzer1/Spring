@@ -11,3 +11,13 @@
 		> addok.jsp
 - webapp > resources > files
 
+4. 추가(다중 파일 업로드)
+- FileTest > script.sql
+
+- com.test.file.model > FileDAO.java (I)
+					  > FileDAOImpl.java(C)
+					  > PlaceDTO.java
+					  > PicDTO.java
+- views > multi > list.jsp
+				> add.jsp
+				> view.jsp
